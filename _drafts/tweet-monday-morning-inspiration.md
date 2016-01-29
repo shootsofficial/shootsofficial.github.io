@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Monday Morning. Inspired by:"
-date:   2016-01-27 11:23:51 -0500
+date:   2016-02-01 11:23:51 -0500
 categories: tweet twitter monday inspiration fashion
 author: "Jason Hargrove"
 authorTwitter: "@jasonhargrove"
