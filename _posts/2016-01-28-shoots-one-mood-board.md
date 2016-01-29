@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shoot 1.1 Mood Board
+title: Shoots Mood Board
 date: 2016-01-28 10:30:33 -0500
 categories: fashion photoshoot toronto moodboard shoots inspiration floral
 shareDescription: 'Inspired by urban florals and loud pops of colours, I made this mood board image with some of the photos that Jason has shared with the team in presenting his creative direction. So excited about Shoots Season 2! – Alanna'
