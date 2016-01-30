@@ -1,0 +1,1 @@
+"use strict";function App(){return{start:function(){return console.log("Shoots Official 🌳"),this}}}function start(){return window.shoots=App(),window.shoots.start()}function onReady(t){return"complete"===document.readyState?t():void document.addEventListener("DOMContentLoaded",t,!1)}onReady(function(){start()});

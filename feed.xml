@@ -1,30 +1,192 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>Shoots Official</title>
+    <description>A fashionable collaboration. Sharing our photo shoots and favourite things ☝️ Posts by Alanna Joanne, Maria Rubio and Jason Hargrove
+</description>
+    <link>http://shootsofficial.com/</link>
+    <atom:link href="http://shootsofficial.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 30 Jan 2016 13:43:06 -0500</pubDate>
+    <lastBuildDate>Sat, 30 Jan 2016 13:43:06 -0500</lastBuildDate>
+    <generator>Jekyll v3.1.0</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>Shoot 1.1 Mood Board</title>
+        <description>&lt;p&gt;Inspired by urban florals and loud pops of colours, I made this mood board image with some of the photos that Jason has shared with the team in presenting his creative direction. So excited about Shoots Season 2! – Alanna&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://shootsofficial.com/assets/images/shoots-mood-board-floral-colour.jpg&quot; alt=&quot;Image of Mood Board&quot; /&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Recent Fashion Photos&lt;/h3&gt;
+
+&lt;style type=&quot;text/css&quot;&gt; 
+	.flickr_badge_image {
+		margin: 0px; display: inline;
+	}
+	.flickr_badge_image img {
+		border: none !important; margin: 2px;
+	}
+	#flickr_badge_wrapper {
+		width: 100%; text-align: left;
+	}
+&lt;/style&gt;
+
+&lt;div id=&quot;flickr_badge_wrapper&quot;&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.flickr.com/badge_code.gne?count=25&amp;amp;display=random&amp;amp;size=square&amp;amp;nsid=134797126@N06&amp;amp;raw=1&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 28 Jan 2016 10:30:33 -0500</pubDate>
+        <link>http://shootsofficial.com/fashion/photoshoot/toronto/moodboard/shoots/inspiration/floral/2016/01/28/shoots-one-mood-board.html</link>
+        <guid isPermaLink="true">http://shootsofficial.com/fashion/photoshoot/toronto/moodboard/shoots/inspiration/floral/2016/01/28/shoots-one-mood-board.html</guid>
+        
+        
+        <category>fashion</category>
+        
+        <category>photoshoot</category>
+        
+        <category>toronto</category>
+        
+        <category>moodboard</category>
+        
+        <category>shoots</category>
+        
+        <category>inspiration</category>
+        
+        <category>floral</category>
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>More like a week and a half!</title>
+        <description>&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Only a few weeks before we have season 2&amp;#39;s first shoot 💃🏻&lt;a href=&quot;https://twitter.com/hashtag/fashion?src=hash&quot;&gt;#fashion&lt;/a&gt; &lt;a href=&quot;https://t.co/1xq6s4213H&quot;&gt;https://t.co/1xq6s4213H&lt;/a&gt;&lt;/p&gt;&amp;mdash; Maria Gabriela Rubio (@Magar13) &lt;a href=&quot;https://twitter.com/Magar13/status/690168348852797441&quot;&gt;January 21, 2016&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+</description>
+        <pubDate>Wed, 27 Jan 2016 11:57:51 -0500</pubDate>
+        <link>http://shootsofficial.com/tweet/shoot/fashion/countdown/2016/01/27/more-like-one-week.html</link>
+        <guid isPermaLink="true">http://shootsofficial.com/tweet/shoot/fashion/countdown/2016/01/27/more-like-one-week.html</guid>
+        
+        
+        <category>tweet</category>
+        
+        <category>shoot</category>
+        
+        <category>fashion</category>
+        
+        <category>countdown</category>
+        
+      </item>
+    
+      <item>
+        <title>We love this</title>
+        <description>&lt;p&gt;&lt;a href=&quot;/runway/fashion/photo/montreal/canada/2016/01/26/shoots-danika-floral-craft-jh+.html&quot;&gt;
+	&lt;img src=&quot;http://shootsofficial.com/assets/images/shoots-official-danika-floral-craft.jpg&quot; /&gt; 
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;description&quot;&gt;
+	&lt;p&gt;Danika K wearing a knit pullover in grey and floral trousers from Topshop. Image by Jason Hargrove&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!--more--&gt;
+
+&lt;div class=&quot;published-twitter&quot;&gt;
+	&lt;p&gt;First published on Tumblr:&lt;br /&gt;&lt;a href=&quot;http://jasonhargrove.tumblr.com/post/137518174997/sunday-just-chillin&quot; target=&quot;_new&quot;&gt;http://jasonhargrove.tumblr.com/post/137518174997/sunday-just-chillin&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Recent Fashion Photos&lt;/h3&gt;
+
+&lt;style type=&quot;text/css&quot;&gt; 
+	.flickr_badge_image {
+		margin: 0px; display: inline;
+	}
+	.flickr_badge_image img {
+		border: none !important; margin: 2px;
+	}
+	#flickr_badge_wrapper {
+		width: 100%; text-align: left;
+	}
+&lt;/style&gt;
+
+&lt;div id=&quot;flickr_badge_wrapper&quot;&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.flickr.com/badge_code.gne?count=25&amp;amp;display=random&amp;amp;size=square&amp;amp;nsid=134797126@N06&amp;amp;raw=1&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 26 Jan 2016 10:23:51 -0500</pubDate>
+        <link>http://shootsofficial.com/runway/fashion/photo/montreal/canada/2016/01/26/shoots-danika-floral-craft-jh+.html</link>
+        <guid isPermaLink="true">http://shootsofficial.com/runway/fashion/photo/montreal/canada/2016/01/26/shoots-danika-floral-craft-jh+.html</guid>
+        
+        
+        <category>runway</category>
+        
+        <category>fashion</category>
+        
+        <category>photo</category>
+        
+        <category>montreal</category>
+        
+        <category>canada</category>
+        
+      </item>
+    
+      <item>
+        <title>Hey dudes, Check out our little but extraordinarily dynamic fashion website. Maria, Jason, and I (Alanna) say hi!</title>
+        <description>&lt;p&gt;Test driving our new site&#39;s editing tools, doing my best to share this throwback runway photo; during a really nice time Jason had in old Montreal.&lt;/p&gt;
+
+&lt;p&gt;&amp;mdash; AJ&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/runway/fashion/photo/montreal/canada/2016/01/26/montreal-fashion-week.html&quot;&gt;
+	&lt;img src=&quot;http://shootsofficial.com/assets/images/duy-montreal-fashion-week-jasonhargrove.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;div class=&quot;poem&quot;&gt;
+	&lt;p&gt;DUY the Montreal-based ready-to-wear line by Duy Nguyen. This photo was S/S 2013, photographed on September 5, 2012.&lt;/p&gt;
+
+	&lt;p&gt;&lt;a href=&quot;http://www.duycollection.com&quot; rel=&quot;nofollow&quot; target=&quot;_new&quot;&gt;duycollection.com&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;published-twitter&quot;&gt;
+	&lt;p&gt;First published on Flickr:&lt;br /&gt;&lt;a href=&quot;https://www.flickr.com/photos/salty_soul/7940374230/in/album-72157631428932624&quot; target=&quot;_new&quot;&gt;https://www.flickr.com/photos/salty_soul/7940374230/in/album-72157631428932624&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Recent Fashion Photos&lt;/h3&gt;
+
+&lt;style type=&quot;text/css&quot;&gt; 
+	.flickr_badge_image {
+		margin: 0px; display: inline;
+	}
+	.flickr_badge_image img {
+		border: none !important; margin: 2px;
+	}
+	#flickr_badge_wrapper {
+		width: 100%; text-align: left;
+	}
+&lt;/style&gt;
+
+&lt;div id=&quot;flickr_badge_wrapper&quot;&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.flickr.com/badge_code.gne?count=25&amp;amp;display=random&amp;amp;size=square&amp;amp;nsid=134797126@N06&amp;amp;raw=1&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 26 Jan 2016 08:23:51 -0500</pubDate>
+        <link>http://shootsofficial.com/runway/fashion/photo/montreal/canada/2016/01/26/montreal-fashion-week.html</link>
+        <guid isPermaLink="true">http://shootsofficial.com/runway/fashion/photo/montreal/canada/2016/01/26/montreal-fashion-week.html</guid>
+        
+        
+        <category>runway</category>
+        
+        <category>fashion</category>
+        
+        <category>photo</category>
+        
+        <category>montreal</category>
+        
+        <category>canada</category>
+        
+      </item>
+    
   </channel>
 </rss>

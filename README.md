@@ -33,7 +33,7 @@ We're pretty techy at Shoots, so you'll need to use Terminal to work with the si
 Fork the Website Repo
 ---------------
 
-The next step is to fork the Shoots repo using the GitHub website.
+The next step is to fork the Shoots repo using the GitHub website. This will make a copy of your own that you can work with.
 
 1. Navigate to the [shootsofficial/shootsofficial.github.io](https://github.com/shootsofficial/shootsofficial.github.io) repository.
 2. In the top-right corners of the page, click *Fork*.
@@ -65,10 +65,10 @@ If you are using SSH keys with GitHub (see security comments above), you can clo
 
 Here we will use the HTTP method. One drawback is that you may need your GitHub username and password. You may see prompts in Terminal, so keep your login info handy!
 
-In your documents directory on Terminal, enter this:
+In your documents directory on Terminal, enter the clone command, with your own github username to complete the URL where indicated:
 
 ```
-git clone https://github.com/shootsofficial/shootsofficial.github.io.git
+git clone https://github.com/{your github user name}/shootsofficial.github.io.git
 ```
 When the download begins, you'll see some information in your terminal. When it's finished, type this:
 
@@ -85,18 +85,20 @@ cd shootsofficial.github.io
 And take a look:
 
 ```
-CNAME
-_config.yml
-_include
-etc
+ls
 ```
-You should see these and more. If you have Jekyll install in your Terminal, you can go ahead and run this to see the website served locally:
+
+`CNAME`
+`_config.yml`
+`_include`
+
+You should see these listed and more. If you have Jekyll installed in your Terminal, you can go ahead and run this to see the website served locally:
 
 ```
 jekyll serve
 ```
 
-If you don't have jekyll yet, we'll sort you out soon. But first it's a good idea to decide how you will edit the code. Let's open up a code editor!
+If you don't have jekyll yet, we'll sort you out soon. (This readme will be updated.) But first it's a good idea to decide how you will edit the code. Let's open up a code editor!
 
 Code Editor
 ---------------
@@ -108,14 +110,14 @@ Two examples are:
 1. [Sublime Text 3](http://www.sublimetext.com/3) (infinitely free with occassional nag)
 2. [Brackets](http://brackets.io) (Pretty good free editor. Slower than Sublime.)
 
-If you're keen, just go ahead and pay the $99 for Sublime. If you don't care, just keep hitting that `escape key` when it bugs you.
+If you're keen, just go ahead and pay the $99 for Sublime. If you don't care, just keep hitting that `escape key` when it bugs you to pay.
 
-These docs won't go into setting up projects in these apps, but don't be daunted! It ain't no thang, and Google will help!
+These docs won't go into setting up projects in these apps, but don't be daunted! It ain't no thang, and Google will help.
 
 Make a Change
 ---------------
 
-```These docs are written first for the Shoots team for contributing to the site content and blog. Design and presentation changes will all use the same git flow, but will not be addressed here today.```
+```These docs are written first for the Shoots team for contributing to the site content and blog. Design and presentation changes use the same git flow, but will not be addressed here today.```
 
 Let's make a small change to a blog post, and then take a look at what Git has to say.
 
@@ -171,7 +173,7 @@ You are proposing to merge your `head fork` `master` branch, into the `base fork
 
 The `base fork` is the Shoots repo. The `head fork` is your own fork of that repo.
 
-If all is well, you should see some green (or red) changes in the code. In this example you may see an extra line you added at the bottom of a blog post. If you made other changes, you'd see that stuff here too.
+If all is well, you should see some green (or red) changes in the code. If you used the `Make A Change` example above, you should see an extra line added to the bottom of the blog post. If you made other changes, you'll see that stuff here too.
 
 The cool thing about this work flow is that you never have to stress too much about changing code.
 
@@ -184,7 +186,7 @@ If you want to open the pull request, hit the big green button that says so.
 Making Blog Posts
 ---------------
 
-In future commits I'll expand on this README. In the meantime, I'll point you in the right direction!
+In future commits I'll expand on editing the site with more detail in this README. In the meantime, I'll point you in the right direction!
 
 To make blog posts just navigate to ```_posts``` in the main directory.
 
@@ -225,3 +227,5 @@ And you're set :)
 Good luck!
 
 +
+
+More information about Jekyll [can be found here](http://jekyllrb.com/).
