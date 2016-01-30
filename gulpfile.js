@@ -11,6 +11,7 @@ var uglify = require('gulp-uglify');
 var shell = require('gulp-shell');
 var browserSync = require('browser-sync');
 var deploy = require('gulp-gh-pages');
+var cssnano = require('gulp-cssnano');
 
 // Empty the _site directory
 gulp.task('clean', function () {
@@ -29,7 +30,7 @@ gulp.task('lint', function () {
 });
 
 // Deploy to production
-gulp.task('deploy:production', function() {
+gulp.task('deploy:production', ['build'], function() {
   return gulp.src('./_site/**/*')
     .pipe(deploy({
       remoteUrl: 'https://github.com/shootsofficial/shootsofficial.github.io',
@@ -48,6 +49,7 @@ gulp.task('serve', shell.task([
   'jekyll serve'
 ]));
 
+// Serve _site directory, production version
 gulp.task('serve:production', ['build'], function() {
   browserSync.init(null, {
     server: {
@@ -55,16 +57,6 @@ gulp.task('serve:production', ['build'], function() {
     }
   });
 });
-
-// Copy .gitignore for deployment
-// // Deployment module ignores .gitignore
-// // Resolved the problem by having Jekyll ignore node_modules
-// gulp.task('gitignore', ['jekyll build'], function () {
-//   return gulp
-//     .src('./.gitignore')
-//     .pipe(gulp.dest('_site'))
-//     .pipe(gulp.dest('.publish'));
-// });
 
 // HTML
 gulp.task('minify', ['jekyll build'], function() {
@@ -82,8 +74,15 @@ gulp.task('uglify', ['jekyll build'], function() {
     .pipe(gulp.dest('_site/assets/js'));
 });
 
+// CSS
+gulp.task('cssnano', ['jekyll build'], function() {
+  return gulp.src('_site/assets/css/main.css')
+      .pipe(cssnano())
+      .pipe(gulp.dest('_site/assets/css'));
+});
+
 // Build jekyll site
-gulp.task('build', ['jekyll build', 'minify', 'uglify']);
+gulp.task('build', ['jekyll build', 'minify', 'uglify', 'cssnano']);
 
 // Shortcut
 gulp.task('default', ['build']);
