@@ -234,7 +234,7 @@ Good luck!
 
 More information about Jekyll [can be found here](http://jekyllrb.com/).
 
-Workflow (in progress)
+Setup (In Progress)
 ---------------
 
 Some quick notes by Alanna about the workflow. 
@@ -264,3 +264,192 @@ npm -v
 You should see the version number appear. Today it says: `3.3.12`
 
 
+Awesome! Now we can install `gulp` and our other dependencies. These are all listed in the `package.json` file. `npm` will read this file and install everything for you within your project. In the future, you can delete this directory any time, and reinstall the modules since it’s project specific.
+
+But first, we’ll need to install `gulp` as a special case:
+
+ ```
+npm install gulp -g
+```
+
+(The `-g` means that you are installing `gulp` globally and it will work anywhere in your computer.)
+
+Once it's done, go ahead and check to make sure it works. 
+
+```
+gulp -v
+```
+If it's installed correctly, it should output the version number. 
+
+Now let's go ahead and install the other modules we need for this project. 
+
+```
+npm install
+```
+
+If all goes well, you may see some warnings about outdated modules, but otherwise no errors. If you do see errors, you may next want to run `npm install` as an administrator (`sudo npm install`).
+
+Ok. Nearly there!
+
+
+For the time-being, we have one `anti-pattern` step that is unique to our project. We need to create a `_private` directory, and inside it, a config file.
+
+You can do this in your code editing program. Let’s do this now together in terminal:
+
+```
+mkdir _private
+```
+
+And now, create the file that we need:
+
+```
+touch _private/config.json
+```
+
+If you feel comfortable, you can use `nano` to edit this file in your terminal. Otherwise feel free to edit this in your code editing program. 
+
+Here we will use `nano`:
+
+```
+nano _private/config.json
+```
+
+Please paste this JSON object into the document and save it:
+
+```
+{
+  "kraken": {
+    "key": "xxxx",
+    "secret": "xxxx",
+    "lossy": false,
+    "resize": {
+      "width": 1500,
+      "height": 1500,
+      "strategy": "auto"
+    }
+  }
+}
+```
+
+
+If you are using a code editor, just hit `save`. If you are using `nano`, type `control + o` to save. It will ask you to confirm the file name, just press `enter`. 
+
+
+Note the `xxxx` fields. We will need to add the Kraken API key and secret.
+
+If you’re on the `Shoots` team, please see @jasonhargrove. If you are not, you’ll need to sign up for Kraken and add your own API key and secret.
+
+https://kraken.io/signup
+
+Once you have edited the key and secret, save the file again. After that, close it. In nano you can do that with `control + x`. 
+
+At this point, you have everything you need to edit, build and deploy the site. 
+
+```
+NOTE TO SELF: add Jekyll setup here
+
+```
+
+Our gulp file runs various build and serving tasks, extending the tools that Jekyll provides. Let’s start by taking a look at some of the default Jekyll tools.
+
+Let's serve the development version of the site with Jekyll:
+
+```
+jekyll serve
+```
+
+It should have confirmed that the server is running, with some instructions about how to stop it.
+
+Now you can open your web browser and check out the site at this address:
+
+```
+http://127.0.0.1:4000
+```
+
+While the development server is running, any time you change the site code, it will rebuild for you. Basically, Jekyll takes all of your development files and processes them, creating a compiled version of the site in this directory: `_site`.
+
+Go ahead and cancel the server by typing:
+
+```
+control + c
+```
+
+While the server was running, it ran the default build command for you. Go ahead and manually run that now:
+
+```
+jekyll build
+```
+
+If you look in the `_site` directory, you’ll see a pretty clean version of your files, near ready to ship to the live site. Unfortunately, the default tools do not go far enough to be considered “Production Ready”. And this is where `gulp` comes in.
+
+On this site, we should not need to directly run the `jekyll serve` or `jekyll build` commands. We’ve wrapped those in `gulp` tasks, and added more.
+
+Go ahead and try this:
+
+```
+gulp build
+```
+
+This gulp task runs the default jekyll build command for you, and then it post-processes the files. These tasks do a variety of things, such as minimizing HTML, CSS and JavaScript; and optimizing images.
+ 
+For consistency, we have a gulp tasks for serving, which does the same thing as the `jekyll serve` command.
+
+```
+gulp serve
+```
+
+Go ahead and open the browser again. To appreciate the difference between the development and production versions let’s right click on the page and “view source”.
+
+You should see a clearly formatted version of the site code.  Nice and legible, for example:
+
+```
+<!DOCTYPE html>
+<html>
+  <!-- The MVP of this site was developed with Jekyll -->
+<!-- http://jekyllrb.com -->
+<!-- Questions: contact@jasonhargrove.com, @jasonhargrove on Twitter -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shoots Official</title>
+  ```
+
+In production, we would expect a minified version of this code. Let’s run our production serve task and check that out.
+
+Type `control + c` to cancel the current serve task.
+
+And type:
+
+ ```
+ gulp serve:production
+ ```
+
+This command will run `gulp build` for you, and replace the `_site` directory with the production-ready files.
+
+It then opens a browser window with the site. Go ahead and look at the source code again. You should see that it is now minified.
+
+(No white spaces!)
+
+Go ahead and cancel that program back in your terminal:
+
+```
+control + c
+```
+
+And that's it! The next major step is `Deployment`. 
+
+
+Deployment
+---------------
+
+The site is served by GitHub Pages, which will deploy the site automatically when you push to its `master` branch. With our new `gulp` workflow, we no longer need to do this via Pull Request. We can do this directly from the terminal.
+
+Note that we still need to do Pull Requests and have team review, but once merged, you will need to deploy manually. We are now always working off of the `development` branch.
+
+Once your code changes are approved do this:
+
+```
+gulp deploy:production
+```

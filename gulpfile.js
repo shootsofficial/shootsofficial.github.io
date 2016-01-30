@@ -95,6 +95,8 @@ gulp.task('kraken', ['jekyll build'], function () {
     console.log('--- Contact @jasonhargrove');
     return;
   }
+
+  // Temporarily disable Kraken
   return;
 
   gulp.src('_site/assets/images/**/*.*')
