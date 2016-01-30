@@ -56,7 +56,7 @@ gulp.task('serve:production', ['build'], function() {
   });
 });
 
-// Copy .gitignore to _site
+// Copy .gitignore for deployment
 gulp.task('gitignore', ['jekyll build'], function () {
   return gulp
     .src('./.gitignore')
