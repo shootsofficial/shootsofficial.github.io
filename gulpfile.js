@@ -28,10 +28,11 @@ gulp.task('lint', function () {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('deploy', function() {
+// Deploy to production
+gulp.task('deploy:production', function() {
   return gulp.src('./_site/**/*')
     .pipe(deploy({
-      origin: 'https://github.com/shootsofficial/shootsofficial.github.io',
+      remoteUrl: 'https://github.com/shootsofficial/shootsofficial.github.io',
       branch: 'master'
     }));
 });
@@ -55,6 +56,13 @@ gulp.task('serve:production', ['build'], function() {
   });
 });
 
+// Copy .gitignore to _site
+gulp.task('gitignore', ['jekyll build'], function () {
+  return gulp
+    .src('./.gitignore')
+    .pipe(gulp.dest('_site'));
+});
+
 // HTML
 gulp.task('minify', ['jekyll build'], function() {
   return gulp.src([
@@ -72,7 +80,7 @@ gulp.task('uglify', ['jekyll build'], function() {
 });
 
 // Build jekyll site
-gulp.task('build', ['jekyll build', 'minify','uglify']);
+gulp.task('build', ['jekyll build', 'gitignore', 'minify', 'uglify']);
 
 // Shortcut
 gulp.task('default', ['build']);
