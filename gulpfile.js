@@ -12,6 +12,12 @@ var shell = require('gulp-shell');
 var browserSync = require('browser-sync');
 var deploy = require('gulp-gh-pages');
 var cssnano = require('gulp-cssnano');
+var privateConfig = require('./_private/config');
+
+// Using a kraken fork
+// My changes are upstream in a pull request
+var kraken = require('./lib/gulp-kraken');
+// var kraken = require('gulp-kraken');
 
 // Empty the _site directory
 gulp.task('clean', function () {
@@ -81,8 +87,20 @@ gulp.task('cssnano', ['jekyll build'], function() {
       .pipe(gulp.dest('_site/assets/css'));
 });
 
+// Images
+gulp.task('kraken', ['jekyll build'], function () {
+  if (!privateConfig.kraken) {
+    console.log('--- Missing Kraken Config');
+    console.log('--- Contact @jasonhargrove');
+    return;
+  }
+
+  gulp.src('_site/assets/images/**/*.*')
+    .pipe(kraken(privateConfig.kraken));
+});
+
 // Build jekyll site
-gulp.task('build', ['jekyll build', 'minify', 'uglify', 'cssnano']);
+gulp.task('build', ['jekyll build', 'minify', 'uglify', 'cssnano', 'kraken']);
 
 // Shortcut
 gulp.task('default', ['build']);
