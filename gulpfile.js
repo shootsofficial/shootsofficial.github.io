@@ -36,7 +36,7 @@ gulp.task('lint', function () {
 });
 
 // Deploy to production
-gulp.task('deploy:production', ['build'], function() {
+gulp.task('deploy:production', ['build', 'kraken'], function() {
   return gulp.src('./_site/**/*')
     .pipe(deploy({
       remoteUrl: 'https://github.com/shootsofficial/shootsofficial.github.io',
