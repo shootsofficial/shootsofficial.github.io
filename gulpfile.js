@@ -28,7 +28,8 @@ gulp.task('clean', function () {
 gulp.task('lint', function () {
   return gulp.src(['**/*.js',
       '!node_modules/**',
-      '!_site/**'
+      '!_site/**',
+      '!lib/**'
     ])
     .pipe(eslint())
     .pipe(eslint.format())
@@ -95,6 +96,7 @@ gulp.task('kraken', ['jekyll build'], function () {
     return;
   }
   return;
+
   gulp.src('_site/assets/images/**/*.*')
     .pipe(kraken(privateConfig.kraken));
 });
