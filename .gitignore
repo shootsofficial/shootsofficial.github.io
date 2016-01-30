@@ -1,0 +1,8 @@
+_site
+.sass-cache
+.jekyll-metadata
+.DS_Store
+_drafts_private
+*draft-private*
+node_modules
+.publish
