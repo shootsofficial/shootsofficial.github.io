@@ -60,7 +60,8 @@ gulp.task('serve:production', ['build'], function() {
 gulp.task('gitignore', ['jekyll build'], function () {
   return gulp
     .src('./.gitignore')
-    .pipe(gulp.dest('_site'));
+    .pipe(gulp.dest('_site'))
+    .pipe(gulp.dest('.publish'));
 });
 
 // HTML
