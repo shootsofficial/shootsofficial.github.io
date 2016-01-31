@@ -334,7 +334,6 @@ Please paste this JSON object into the document and save it:
 
 If you are using a code editor, just hit `save`. If you are using `nano`, type `control + o` to save. It will ask you to confirm the file name, just press `enter`. 
 
-
 Note the `xxxx` fields. We will need to add the Kraken API key and secret.
 
 If you’re on the `Shoots` team, please see @jasonhargrove. If you are not, you’ll need to sign up for Kraken and add your own API key and secret.
@@ -392,7 +391,7 @@ gulp build
 
 This gulp task runs the default jekyll build command for you, and then it post-processes the files. These tasks do a variety of things, such as minimizing HTML, CSS and JavaScript; and optimizing images.
  
-For consistency, we have a gulp tasks for serving, which does the same thing as the `jekyll serve` command.
+For consistency, we have a gulp task for serving which does the same thing as the `jekyll serve` command.
 
 ```
 gulp serve
@@ -405,7 +404,7 @@ You should see a clearly formatted version of the site code.  Nice and legible, 
 ```
 <!DOCTYPE html>
 <html>
-  <!-- The MVP of this site was developed with Jekyll -->
+<!-- The MVP of this site was developed with Jekyll -->
 <!-- http://jekyllrb.com -->
 <!-- Questions: contact@jasonhargrove.com, @jasonhargrove on Twitter -->
 
@@ -414,7 +413,7 @@ You should see a clearly formatted version of the site code.  Nice and legible, 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shoots Official</title>
-  ```
+```
 
 In production, we would expect a minified version of this code. Let’s run our production serve task and check that out.
 
@@ -422,9 +421,9 @@ Type `control + c` to cancel the current serve task.
 
 And type:
 
- ```
- gulp serve:production
- ```
+```
+gulp serve:production
+```
 
 This command will run `gulp build` for you, and replace the `_site` directory with the production-ready files.
 
@@ -449,6 +448,11 @@ The site is served by GitHub Pages, which will deploy the site automatically whe
 Note that we still need to do Pull Requests and have team review, but once merged, you will need to deploy manually. We are now always working off of the `development` branch.
 
 Once your code changes are approved do this:
+
+```
+gulp build
+```
+Once that is ready, go ahead and deploy.
 
 ```
 gulp deploy:production
