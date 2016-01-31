@@ -146,7 +146,7 @@ gulp.task('deploy:assets', ['kraken'], function() {
 // The master branch of the shootsofficial.github.io repo
 // (the organization's main GitHub Page)
 // http://shootsofficial.com
-gulp.task('deploy:production', function() {
+gulp.task('deploy:production', ['build'], function() {
   return gulp.src('./_site/**/*')
     .pipe(deploy({
       remoteUrl: 'https://github.com/shootsofficial/shootsofficial.github.io',
