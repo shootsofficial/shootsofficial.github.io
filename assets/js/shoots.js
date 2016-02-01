@@ -1,1 +1,27 @@
-"use strict";function App(){return{start:function(){return console.log("Shoots Official 🌳"),this}}}function start(){return window.shoots=App(),window.shoots.start()}function onReady(t){return"complete"===document.readyState?t():void document.addEventListener("DOMContentLoaded",t,!1)}onReady(function(){start()});
+'use strict';
+
+function App () {
+  return {
+    start: function () {
+      console.log('Shoots Official 🌳');
+      return this;
+    }
+  };
+};
+
+function start () {
+  window.shoots = App();
+  return window.shoots.start();
+}
+
+function onReady (cb) {
+  if (document.readyState === 'complete') {
+    return cb();
+  }
+
+  document.addEventListener('DOMContentLoaded', cb, false);
+};
+
+onReady(function () {
+  var app = start();
+});

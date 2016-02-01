@@ -4,7 +4,6 @@
 // The main Jekyll site,
 // and a static assets repo.
 // File optimizations are done with Gulp.
-// SASS is processed by Jekyll build.
 // A development server provided by Jekyll,
 // and a test production server with BrowserSync.
 
@@ -15,32 +14,11 @@ var htmlmin = require('gulp-htmlmin');
 var eslint = eslint = require('gulp-eslint');
 var uglify = require('gulp-uglify');
 var shell = require('gulp-shell');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var deploy = require('gulp-gh-pages');
 var cssnano = require('gulp-cssnano');
+var sass = require('gulp-sass');
 
-// An anti-pattern file for the Shoots site,
-// currently hosting our Kraken secrets.
-// Make this directory:
-// _private
-// And inside it, add this file:
-// config.json
-// Inside that file, add this text,
-// changing the `xxxx` to your Kraken API credentials
-/*
-  {
-    "kraken": {
-      "key": "xxxx",
-      "secret": "xxxx",
-      "lossy": false,
-      "resize": {
-        "width": 1500,
-        "height": 1500,
-        "strategy": "auto"
-      }
-    }
-  }
-*/
 var privateConfig = require('./_private/config');
 
 // Using a kraken fork that adds their resizing API
@@ -67,12 +45,29 @@ gulp.task('lint', function () {
 });
 
 // Serve _site directory
-gulp.task('serve', shell.task([
-  'jekyll serve'
-]));
+// gulp.task('serve', shell.task([
+//   'jekyll serve'
+// ]));
+
+// Serve _site directory
+gulp.task('serve', ['jekyll build', 'sass:build'], function () {
+  browserSync.init({
+    server: './_site'
+  });
+
+  gulp.watch([
+    '_drafts/**/*',
+    '_layouts/**/*',
+    '_includes/**/*',
+    '_posts/**/*',
+    'index.html'
+  ], ['build']);
+
+  gulp.watch('_sass/*.scss', ['sass']);
+});
 
 // Serve _site directory, production version
-gulp.task('serve:production', ['build'], function() {
+gulp.task('serve:production', ['build'], function () {
   browserSync.init(null, {
     server: {
       baseDir: './_site'
@@ -87,7 +82,7 @@ gulp.task('jekyll build', ['clean'], shell.task([
 ]));
 
 // HTML
-gulp.task('minify', ['jekyll build'], function() {
+gulp.task('minify', ['jekyll build'], function () {
   return gulp.src([
     '_site/**/*.html',
     '!_site/node_modules/**/*.html'])
@@ -96,14 +91,14 @@ gulp.task('minify', ['jekyll build'], function() {
 });
 
 // JavaScript
-gulp.task('uglify', ['jekyll build'], function() {
-  return gulp.src('_site/assets/js/shoots.js')
+gulp.task('uglify', ['jekyll build'], function () {
+  return gulp.src('_site/assets/js/jasonhargrove.js')
     .pipe(uglify())
     .pipe(gulp.dest('_site/assets/js'));
 });
 
 // CSS
-gulp.task('cssnano', ['jekyll build'], function() {
+gulp.task('cssnano', ['jekyll build'], function () {
   return gulp.src('_site/assets/css/main.css')
       .pipe(cssnano())
       .pipe(gulp.dest('_site/assets/css'));
@@ -117,8 +112,26 @@ gulp.task('kraken', ['jekyll build'], function () {
     return;
   }
 
-  return gulp.src('_site/assets/images/**/*.*')
+  return gulp.src([
+      '_site/assets/images/**/*.*',
+      '!_site/assets/images/favicon/**/*.*'
+    ])
     .pipe(kraken(privateConfig.kraken));
+});
+
+// SASS
+gulp.task('sass', function () {
+  gulp.src('./assets/css/main.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./_site/assets/css'))
+    .pipe(browserSync.stream());
+});
+
+gulp.task('sass:build', ['jekyll build'], function () {
+  gulp.src('./assets/css/main.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./_site/assets/css'))
+    .pipe(browserSync.stream());
 });
 
 // Deploy _site/assets/ to production assets server
@@ -134,7 +147,7 @@ gulp.task('kraken', ['jekyll build'], function () {
 // // http://shootsofficial.com/shootsofficial.assets
 // Usage example:
 // http://shootsofficial.com/shootsofficial.assets/images/duy-montreal-fashion-week-jasonhargrove.jpg
-gulp.task('deploy:assets', ['kraken'], function() {
+gulp.task('deploy:assets', ['kraken', 'sass'], function () {
   return gulp.src('./_site/assets/**/*')
     .pipe(deploy({
       remoteUrl: 'https://github.com/shootsofficial/shootsofficial.assets',
@@ -146,7 +159,7 @@ gulp.task('deploy:assets', ['kraken'], function() {
 // The master branch of the shootsofficial.github.io repo
 // (the organization's main GitHub Page)
 // http://shootsofficial.com
-gulp.task('deploy:production', ['build'], function() {
+gulp.task('deploy:production', ['build'], function () {
   return gulp.src('./_site/**/*')
     .pipe(deploy({
       remoteUrl: 'https://github.com/shootsofficial/shootsofficial.github.io',
@@ -155,7 +168,10 @@ gulp.task('deploy:production', ['build'], function() {
 });
 
 // Build jekyll site
-gulp.task('build', ['jekyll build', 'minify', 'uglify', 'cssnano']);
+gulp.task('build', ['jekyll build', 'sass:build', 'minify', 'uglify', 'cssnano'],
+function () {
+  browserSync.reload()
+});
 
 // Shortcut
 gulp.task('default', ['build']);

@@ -68,7 +68,7 @@ Here we will use the HTTP method. One drawback is that you may need your GitHub 
 In your documents directory on Terminal, enter this:
 
 ```
-git clone https://github.com/shootsofficial/shootsofficial.github.io.git
+git clone https://github.com/{your github user name}/shootsofficial.github.io.git
 ```
 When the download begins, you'll see some information in your terminal. When it's finished, type this:
 
