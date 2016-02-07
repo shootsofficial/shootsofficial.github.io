@@ -21,6 +21,29 @@ var sass = require('gulp-sass');
 
 var privateConfig = require('./_private/config');
 
+// An anti-pattern file for the Shoots site,
+// currently hosting our Kraken secrets.
+// Make this directory:
+// _private
+// And inside it, add this file:
+// config.json
+// Inside that file, add this text,
+// changing the `xxxx` to your Kraken API credentials
+/*
+  {
+    "kraken": {
+      "key": "xxxx",
+      "secret": "xxxx",
+      "lossy": false,
+      "resize": {
+        "width": 1500,
+        "height": 1500,
+        "strategy": "auto"
+      }
+    }
+  }
+*/
+
 // Using a kraken fork that adds their resizing API
 // to the library.
 // (My changes are upstream in a pull request.)
@@ -92,7 +115,7 @@ gulp.task('minify', ['jekyll build'], function () {
 
 // JavaScript
 gulp.task('uglify', ['jekyll build'], function () {
-  return gulp.src('_site/assets/js/jasonhargrove.js')
+  return gulp.src('_site/assets/js/shoots.js')
     .pipe(uglify())
     .pipe(gulp.dest('_site/assets/js'));
 });
