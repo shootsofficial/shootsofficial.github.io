@@ -143,6 +143,8 @@ gulp.task('kraken', ['jekyll build'], function () {
 });
 
 // SASS
+// // live injection in browser
+// // for example during `gulp serve`
 gulp.task('sass', function () {
   gulp.src('./assets/css/main.scss')
     .pipe(sass().on('error', sass.logError))
@@ -150,6 +152,7 @@ gulp.task('sass', function () {
     .pipe(browserSync.stream());
 });
 
+// // used during `gulp build`
 gulp.task('sass:build', ['jekyll build'], function () {
   gulp.src('./assets/css/main.scss')
     .pipe(sass().on('error', sass.logError))
@@ -191,6 +194,8 @@ gulp.task('deploy:production', ['build'], function () {
 });
 
 // Build jekyll site
+// Do post-production
+// Refreshes browser if using
 gulp.task('build', ['jekyll build', 'sass:build', 'minify', 'uglify', 'cssnano'],
 function () {
   browserSync.reload()
