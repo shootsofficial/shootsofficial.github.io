@@ -13,13 +13,13 @@ shareDescription: "Sneak Preview. NEW Toronto Designer Steven Lejambe and his fi
 
 Dress made by new Toronto designer Steven Lejambe for his first collection.
 
-Photographer: Jason Hargrove +  
-Model: [Victoria Kristine](http://www.plutinogroup.com/models/women/victoria-kristine/portfolio) from Plutino Group
-Hair: Alex Topp from Medulla & Co.
-Makeup: Julia Crimson
-Set Design Assistant: Melissa MacKichan
-Producer: Alanna Joanne
-Creative Direction, Style, Accessories: Jason Hargrove
+Photographer: Jason Hargrove +<br>
+Model: Victoria Kristine from Plutino Group<br>
+Hair: Alex Topp from Medulla & Co.<br>
+Makeup: Julia Crimson<br>
+Set Design Assistant: Melissa MacKichan<br>
+Producer: Alanna Joanne<br>
+Creative Direction, Style, Accessories: Jason Hargrove<br>
 Style Assistant: Alanna Joanne
 
 Non-plus versions available for publications.  
