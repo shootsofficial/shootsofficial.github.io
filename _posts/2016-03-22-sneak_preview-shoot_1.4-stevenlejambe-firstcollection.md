@@ -6,7 +6,7 @@ categories: sneak peek fashion gown stevenlejambe
 author: "Shoots Official"
 authorTwitter: "@shootsOfficial"
 shareImage: "http://shootsofficial.com/shootsofficial.assets/images/shoots-official-1.4-jasonhargrove-victoria-3-stevenlejambe-gown.jpg"
-shareDescription: 'Sneak Preview. Toronto Designer Steven Lejambe and the "Pluto" gown from his Autumn 2016 collection.'
+shareDescription: "Sneak Preview. Toronto Designer Steven Lejambe and the 'Pluto' gown from his Autumn 2016 collection."
 ---
 
 ![Steven Lejambe Gown]({{ page.shareImage }})
